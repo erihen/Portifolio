@@ -1,0 +1,216 @@
+body {
+    background-color: #343A40;
+    color: #FEEAC7;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+h1 {
+    color: #5F0F40;
+    font-size: 24px;
+    font-weight: 100; /* Removido o 'px' pois font-weight não usa unidade */
+    font-family: Helvetica;
+    background-color: #D9C5B2;
+    border-radius: 40px;
+    display: inline-block; 
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #000000;
+    padding: 10px 0;
+}
+
+nav a {
+    color: #9A031E;
+    text-decoration: none;
+    margin-right: 15px;
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+    color: #000000;
+    transform: scale(1.05);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: coral;
+    padding: 10px 20px;
+}
+
+main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+article {
+    background-color: #495057; 
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card {
+    background-color: #5F0F40;
+    padding: 24px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.20);
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+th {
+    border: 1px solid #FEEAC7;
+    padding: 8px 16px;
+    background-color: rgb(27, 3, 49);
+}
+
+/* Estilização da seção de certificados */
+.secao-certificados {
+    padding: 40px 20px;
+    background-color: #e94934;
+    margin-top: 20px;
+    border-radius: 24px;
+}
+
+.secao-certificados h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #b224be;
+}
+
+.lista-certificados {
+    list-style: none;
+    padding: 0;
+    border-radius: 12px;
+}
+
+.lista-certificados li {
+    padding: 12px;
+    border-bottom: 1px solid rgb(0, 204, 231);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.curso-nome {
+    font-weight: bold;
+}
+
+/* Estilo do botão do PDF */
+.btn-pdf {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.btn-pdf:hover {
+    background-color: #6F1D1B;
+}
+
+.gostos {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.gostos li {
+    background-color: #9A031E;
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+.foto-sobre {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 12px;
+    border: 3px solid #ccc;
+    display: block;
+    margin: 20px auto; /* Centraliza a imagem na tela */
+}
+
+@keyframes deslizarTitulo {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0); 
+    }
+}
+
+footer {
+    background-color: #212529;
+    color: #FEEAC7;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+    border-top: 1px solid #FFAFCC;
+}
+
+/* Responsividade para telas menores (Celulares) */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    h1 {
+        font-size: 28px;
+    }
+}
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espaço entre os ícones */
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.footer-links a {
+    color: #FEEAC7; /* Cor dos ícones */
+    font-size: 24px;  /* Tamanho dos ícones */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #FFAFCC; /* Cor ao passar o mouse */
+    transform: scale(1.2); /* Dá um leve zoom quando passa o mouse */
+}
+/* Container centralizado para dar respiro */
+.secao-contato {
+    max-width: 550px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.contato-container { 
+    background-color: #495057; /* Fundo do card */
+    padding: 20px;
+}
