@@ -113,7 +113,7 @@ th {
     font-weight: bold;
 }
 
-/* Estilo do botão do PDF */
+
 .btn-pdf {
     display: inline-block;
     padding: 6px 12px;
@@ -145,12 +145,12 @@ th {
 
 .foto-sobre {
     width: 100%;
-    max-width: 350px;
+    max-width: 200px;
     height: auto;
     border-radius: 12px;
     border: 3px solid #ccc;
     display: block;
-    margin: 20px auto; /* Centraliza a imagem na tela */
+    margin: 20px auto; 
 }
 
 @keyframes deslizarTitulo {
