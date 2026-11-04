@@ -1,13 +1,9 @@
 // --- 1. Lógica do Modo Escuro ---
-const btnTema = document.createElement("button"); // Caso queira criar via JS, ou use o do HTML se já tiver
-// Nota: Se você já tem o botão no seu HTML com id="tema", use a linha abaixo:
 const btnTemaExistente = document.getElementById('tema');
 
-// Função para aplicar ou remover o modo escuro
 function alternarModoEscuro() {
     document.body.classList.toggle('modo-escuro');
     
-    // Verifica se está ativo e salva a preferência
     if (document.body.classList.contains('modo-escuro')) {
         localStorage.setItem('tema', 'escuro');
         if (btnTemaExistente) btnTemaExistente.textContent = 'Modo claro ☀️';
@@ -17,7 +13,6 @@ function alternarModoEscuro() {
     }
 }
 
-// Carrega a preferência salva do usuário ao abrir a página
 window.addEventListener('DOMContentLoaded', () => {
     const temaSalvo = localStorage.getItem('tema');
     if (temaSalvo === 'escuro') {
@@ -28,13 +23,11 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Adiciona o evento de clique se o botão existir no HTML
 if (btnTemaExistente) {
     btnTemaExistente.addEventListener('click', alternarModoEscuro);
 }
 
-
-// --- 2. Lógica de Renderização dos Gostos ---
+// --- 2. Renderização de Gostos ---
 const gostos = [
     { texto: "Jogos", emoji: "🎮" },
     { texto: "Animes", emoji: "✨" },
@@ -45,8 +38,8 @@ const gostos = [
 
 function renderizarLista(dados, seletorDestino) {
     const lista = document.querySelector(seletorDestino);
-    if (!lista) return; // Segurança caso o elemento não exista na página
-    
+    if (!lista) return;
+
     lista.innerHTML = "";
     const fragmento = document.createDocumentFragment();
 
@@ -65,5 +58,53 @@ function renderizarLista(dados, seletorDestino) {
     lista.appendChild(fragmento);
 }
 
-// Chamando a função para preencher a lista
-renderizarLista(gostos, "#gostos");
+// --- 3. Efeito de Digitação Interativo ---
+const palavras = ["Desenvolvedor Web 💻", "Entusiasta de Games 🎮", "Estudante de JS 🚀"];
+let i = 0, j = 0, apagando = false;
+
+function digitar() {
+    const el = document.getElementById("texto-dinamico");
+    if (!el) return;
+
+    const palavraAtual = palavras[i];
+    el.textContent = apagando ? palavraAtual.substring(0, j--) : palavraAtual.substring(0, j++);
+
+    if (!apagando && j === palavraAtual.length + 1) {
+        apagando = true;
+        setTimeout(digitar, 1500);
+    } else if (apagando && j === 0) {
+        apagando = false;
+        i = (i + 1) % palavras.length;
+        setTimeout(digitar, 500);
+    } else {
+        setTimeout(digitar, apagando ? 50 : 100);
+    }
+}
+
+// --- 4. Gerador de Frases Dev ---
+const frases = [
+    '"Todo grande código começa com uma ideia simples."',
+    '"A prática leva à perfeição no código."',
+    '"Pequenos passos diários constroem grandes projetos."',
+    '"Aprender a programar é aprender a resolver problemas."',
+    '"Se funciona e tá limpo, tá feito!"'
+];
+
+function inicializarFrases() {
+    const btnFrase = document.getElementById("btn-frase");
+    const elFrase = document.getElementById("frase-dev");
+
+    if (btnFrase && elFrase) {
+        btnFrase.addEventListener("click", () => {
+            const aleatoria = frases[Math.floor(Math.random() * frases.length)];
+            elFrase.textContent = aleatoria;
+        });
+    }
+}
+
+// Inicializações
+window.addEventListener("DOMContentLoaded", () => {
+    renderizarLista(gostos, "#gostos");
+    digitar();
+    inicializarFrases();
+});

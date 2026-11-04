@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
-    <title>Minha história</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos - Henrique</title>
+    <!-- Ícone na aba do navegador -->
+    <link rel="icon" href="https://fav.farm/💻">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap">
 </head>
-
 <body>
     <header>
-        
-        <h2 style="margin: 0; font-size: 20px;">Henrique</h2>
-       
+        <h2 class="logo">Henrique</h2>
+        <!-- Botão do Modo Escuro -->
+        <button id="tema">Modo escuro 🌙</button>
         <nav>
             <a href="index.html">Início</a>
-            <a href="sobre.html">Sobre mim</a>
             <a href="projeto.html">Projetos</a>
             <a href="contato.html">Contato</a>
         </nav>
     </header>
 
-    <main>
-        <h1>Meus Projetos</h1>
-        <div class="projeto" id="lista-projetos"></div>
+    <main class="container-principal">
+        
+        <!-- Apresentação da Seção -->
+        <section class="secao-apresentacao">
+            <h1>Meus Projetos 🚀</h1>
+            <p class="subtitulo">Aqui estão alguns dos trabalhos e estudos que desenvolvi</p>
+        </section>
+
+        <!-- Lista de Projetos (Renderizada dinamicamente pelo JavaScript) -->
+        <section class="secao-card" style="border-top-color: #f59e0b;">
+            <h2>Galeria de Criações 📂</h2>
+            <div id="lista-projetos"></div>
+        </section>
+
     </main>
+
     <footer>
-        <p>2026 - <em>Henrique</em></p>
+        <p>© 2026 - Desenvolvido por <em>Henrique</em> com muita dedicação 💻</p>
     </footer>
-    
+
+    <!-- Script Principal (Modo Escuro + Projetos Dinâmicos) -->
     <script src="js/script.js"></script>
     <script src="js/projeto.js"></script>
 </body>
-
 </html>

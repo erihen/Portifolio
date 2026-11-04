@@ -1,12 +1,12 @@
-/* --- 1. Variáveis de Cores (Temas Claro e Escuro - Cores Fortes e Nítidas) --- */
+/* --- 1. Variáveis de Cores (Alto Contraste) --- */
 :root {
     --bg-body: linear-gradient(135deg, #f0f4ff 0%, #d9e2ec 100%);
-    --text-color: #1a202c;         /* Texto escuro bem forte para leitura perfeita */
+    --text-color: #1a202c;
     --card-bg: #ffffff;
     --card-shadow: rgba(0, 0, 0, 0.12);
     --header-bg: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
     --header-text: #ffffff;
-    --title-color: #4f46e5;        /* Azul elétrico bem chamativo */
+    --title-color: #4f46e5;
     --border-color: #cbd5e1;
     --gosto-bg: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%);
     --gosto-border: rgba(79, 70, 229, 0.3);
@@ -16,12 +16,12 @@
 
 body.modo-escuro {
     --bg-body: linear-gradient(135deg, #090d16 0%, #171923 100%);
-    --text-color: #f7fafc;         /* Texto claro e brilhante para máxima legibilidade */
+    --text-color: #f7fafc;
     --card-bg: #1a202c;
     --card-shadow: rgba(0, 0, 0, 0.5);
     --header-bg: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
     --header-text: #ffffff;
-    --title-color: #60a5fa;        /* Azul claro super vibrante no escuro */
+    --title-color: #60a5fa;
     --border-color: #4a5568;
     --gosto-bg: linear-gradient(135deg, rgba(96, 165, 250, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
     --gosto-border: rgba(96, 165, 250, 0.4);
@@ -29,11 +29,15 @@ body.modo-escuro {
     --table-hover: #374151;
 }
 
-/* --- 2. Reset Global --- */
+/* --- 2. Reset Global & Scroll Suave --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -63,7 +67,7 @@ header .logo {
     font-size: 1.6rem;
     font-weight: 700;
     color: var(--header-text);
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 header nav {
@@ -88,10 +92,9 @@ header nav a:hover {
     transform: translateY(-2px);
 }
 
-/* Botão do Tema */
 #tema {
-    background: #f59e0b; /* Amarelo ouro bem chamativo */
-    color: #1a202c;      /* Texto escuro no botão para nunca sumir */
+    background: #f59e0b;
+    color: #1a202c;
     border: none;
     padding: 8px 18px;
     border-radius: 20px;
@@ -107,7 +110,7 @@ header nav a:hover {
     background: #fbbf24;
 }
 
-/* --- 4. Container Principal e Seções --- */
+/* --- 4. Containers e Cards --- */
 .container-principal {
     max-width: 850px;
     margin: 40px auto;
@@ -124,11 +127,13 @@ header nav a:hover {
     border-radius: 20px;
     box-shadow: 0 8px 25px var(--card-shadow);
     border-top: 5px solid #4f46e5;
-    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .secao-card:hover {
     transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(79, 70, 229, 0.25);
+    border-top-color: #f59e0b;
 }
 
 .secao-card h2 {
@@ -144,7 +149,7 @@ header nav a:hover {
     text-align: center;
 }
 
-/* --- 5. Seção de Apresentação --- */
+/* --- 5. Apresentação --- */
 .secao-apresentacao {
     text-align: center;
     background-color: var(--card-bg);
@@ -153,12 +158,11 @@ header nav a:hover {
     border-radius: 20px;
     box-shadow: 0 8px 25px var(--card-shadow);
     border-top: 5px solid #f59e0b;
-    transition: background-color 0.3s ease;
 }
 
 .secao-apresentacao h1 {
-    font-size: 2.3rem;
-    margin-bottom: 15px;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
     color: var(--title-color);
 }
 
@@ -175,11 +179,12 @@ header nav a:hover {
 .subtitulo {
     font-size: 1.2rem;
     font-weight: 600;
+    min-height: 32px;
     margin-bottom: 10px;
-    color: #f59e0b; /* Amarelo vibrante de destaque */
+    color: #f59e0b;
 }
 
-/* --- 6. Lista de Gostos (Cards) --- */
+/* --- 6. Lista de Gostos --- */
 .gostos {
     list-style: none;
     display: grid;
@@ -203,7 +208,7 @@ header nav a:hover {
 .gosto-card:hover {
     transform: scale(1.03);
     background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-    color: #ffffff; /* Fica branco apenas no hover porque o fundo fica escuro/roxo forte */
+    color: #ffffff;
     border-color: transparent;
 }
 
@@ -211,7 +216,7 @@ header nav a:hover {
     font-size: 1.6rem;
 }
 
-/* --- 7. Metas e Rotina (Tabelas e Listas) --- */
+/* --- 7. Metas, Rotina e Habilidades --- */
 .lista-metas {
     padding-left: 20px;
     display: flex;
@@ -253,100 +258,33 @@ tr:hover {
     background-color: var(--table-hover);
 }
 
-/* --- 8. Seção e Cards de Projetos --- */
-#lista-projetos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.projeto-card {
-    background-color: var(--card-bg);
-    color: var(--text-color);
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 6px 20px var(--card-shadow);
-    border: 1px solid var(--border-color);
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.projeto-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(79, 70, 229, 0.25);
-}
-
-.card-thumb {
-    width: 100%;
-    height: 160px;
-    background-color: #cbd5e1;
-    overflow: hidden;
-}
-
-.card-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.projeto-card:hover .card-thumb img {
-    transform: scale(1.05);
-}
-
-.card-content {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.card-content h2 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: var(--text-color);
-    border-bottom: none !important;
-    padding-bottom: 0 !important;
-}
-
-.card-content p {
-    font-size: 0.95rem;
-    opacity: 0.9;
-    margin-bottom: 15px;
-    flex-grow: 1;
-}
-
-/* Badges de Tecnologias */
 .tech-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 20px;
+    gap: 10px;
 }
 
 .badge {
     background: var(--gosto-bg);
     color: var(--title-color);
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    padding: 4px 10px;
+    padding: 6px 14px;
     border-radius: 20px;
     border: 1px solid var(--gosto-border);
 }
 
-/* Botão do Projeto */
 .btn-projeto {
+    display: inline-block;
     text-decoration: none;
-    text-align: center;
     background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
     color: #ffffff;
-    padding: 10px 16px;
+    padding: 10px 20px;
     border-radius: 10px;
     font-weight: 600;
     font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
     transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
@@ -355,7 +293,7 @@ tr:hover {
     transform: translateY(-2px);
 }
 
-/* --- 9. Formulário de Contato --- */
+/* --- 8. Formulário de Contato --- */
 main {
     max-width: 850px;
     margin: 40px auto;
@@ -439,7 +377,7 @@ form input[type="submit"]:hover {
     transform: translateY(-2px);
 }
 
-/* --- 10. Redes Sociais --- */
+/* --- 9. Redes Sociais e Rodapé --- */
 .redes-sociais {
     display: flex;
     justify-content: center;
@@ -463,7 +401,6 @@ form input[type="submit"]:hover {
     box-shadow: 0 6px 20px rgba(245, 158, 11, 0.6);
 }
 
-/* --- 11. Rodapé --- */
 footer {
     text-align: center;
     padding: 30px;
@@ -472,4 +409,27 @@ footer {
     margin-top: 50px;
     font-weight: 600;
     opacity: 0.9;
+}
+
+/* --- 10. Responsividade (Celulares) --- */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        padding: 15px 20px;
+    }
+
+    header nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .secao-apresentacao h1 {
+        font-size: 1.8rem;
+    }
+
+    .redes-sociais {
+        flex-direction: column;
+    }
 }

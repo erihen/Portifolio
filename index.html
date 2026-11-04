@@ -1,34 +1,131 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
-    <title> Inicio-Henrique </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início - Henrique</title>
+    <!-- Ícone na aba do navegador (Emoji de Notebook) -->
+    <link rel="icon" href="https://fav.farm/💻">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap">
 </head>
-
 <body>
-<header>
-    <h2 style="margin: 0; font-size: 20px;">Henrique</h2>
-<nav>
- <a href="index.html">Início</a>
- <a href="sobre.html">Sobre mim</a>
- <a href="projeto.html">Projetos</a>
- <a href="contato.html">Contato</a>
-</nav>
-</header> 
+    <header>
+        <h2 class="logo">Henrique</h2>
+        <!-- Botão do Modo Escuro -->
+        <button id="tema">Modo escuro 🌙</button>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="projeto.html">Projetos</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+    </header>
 
-    <main>
-     <h1>Bem vindo ao meu portifólio</h1>
-     <p> Meu nome é Henrique e eu estou aprendo a criar sites</p>
-        <a href="projeto.html">Conheça meus projetos</a>
+    <main class="container-principal">
+        
+        <!-- Apresentação Principal com Texto Dinâmico -->
+        <section class="secao-apresentacao">
+            <img src="imagens/regigigas-pokemon.jpg" alt="Regigigas - Melhor lendário" class="foto-perfil">
+            <h1>Oi, eu sou o Henrique</h1>
+            <p class="subtitulo"><span id="texto-dinamico"></span></p>
+            <p>Moro em <strong>São Paulo</strong> 🏙️</p>
+        </section>
     
+        <!-- Seção: Sobre Mim -->
+        <section class="secao-card">
+            <h2>Sobre Mim 👤</h2>
+            <p style="margin-bottom: 15px; font-size: 1.05rem;">
+                Olá! Meu nome é Henrique. Eu tenho transtorno do espectro autista e sou fascinado por tecnologia, games e computação. 
+            </p>
+            <p style="font-size: 1.05rem;">
+                Estou aprendendo a criar sites modernos utilizando HTML, CSS e JavaScript. Este portfólio é o lugar onde coloco meus estudos e projetos em prática!
+            </p>
+        </section>
+
+        <!-- Seção: Habilidades Técnicas -->
+        <section class="secao-card">
+            <h2>Minhas Habilidades 🛠️</h2>
+            <div class="tech-list">
+                <span class="badge">HTML5</span>
+                <span class="badge">CSS3</span>
+                <span class="badge">JavaScript</span>
+                <span class="badge">Git & GitHub</span>
+                <span class="badge">Lógica de Programação</span>
+            </div>
+        </section>
+
+        <!-- Seção: O que eu gosto (Gerado via JS) -->
+        <section class="secao-card">
+            <h2>O que eu gosto 🌟</h2>
+            <ul class="gostos" id="gostos"></ul>
+        </section>
+
+        <!-- Seção: Gerador de Frases Dev -->
+        <section class="secao-card centralizado">
+            <h2>Pensamento Dev 💡</h2>
+            <p id="frase-dev" style="font-style: italic; margin-bottom: 15px; font-weight: 500;">
+                "Todo grande código começa com uma ideia simples."
+            </p>
+            <button id="btn-frase" class="btn-projeto">Outra frase ✨</button>
+        </section>
+
+        <!-- Seção: Minhas Metas -->
+        <section class="secao-card">
+            <h2>Minhas Metas 🎯</h2>
+            <ol class="lista-metas">
+                <li>Aprender a programar estruturas sólidas</li>
+                <li>Dominar o design com CSS moderno</li>
+                <li>Criar aplicações interativas com JavaScript</li>
+            </ol>
+        </section>
+    
+        <!-- Seção: Minha Rotina -->
+        <section class="secao-card">
+            <h2>Minha Rotina 📅</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dia</th>
+                        <th>Atividade</th>
+                        <th>Horário</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Segunda-feira</td>
+                        <td>Estudar programação</td>
+                        <td>19:00</td>
+                    </tr>
+                    <tr>
+                        <td>Terça-feira</td>
+                        <td>Assistir anime</td>
+                        <td>20:00</td>
+                    </tr>
+                    <tr>
+                        <td>Quarta-feira</td>
+                        <td>Jogar videogame</td>
+                        <td>18:00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Seção: Redes Sociais -->
+        <section class="secao-card centralizado">
+            <h2>Minhas Redes 🌐</h2>
+            <div class="redes-sociais">
+                <a href="https://www.instagram.com/hlopes.10/" target="_blank" class="btn-rede">Instagram</a>
+                <a href="https://www.facebook.com/hlopes.10?locale=pt_BR" target="_blank" class="btn-rede">Facebook</a>
+            </div>
+        </section>
+
     </main>
 
     <footer>
-        <p>2026- <em>Henrique</em></p>
-        
+        <p>© 2026 - Desenvolvido por <em>Henrique</em> com muita dedicação 💻</p>
     </footer>
+
+    <!-- Script Principal -->
     <script src="js/script.js"></script>
-    </body> 
+</body>
 </html>
