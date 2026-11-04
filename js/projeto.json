@@ -1,0 +1,23 @@
+[
+    {
+        "titulo": "Protótipo Figma",
+        "descricao": "Protótipo de um site feito no Figma, com foco em design e experiência do usuário."
+    },
+    {
+        "titulo": "Jogo da Memória",
+        "descricao": "Um jogo interativo de memória desenvolvido com HTML, CSS e JavaScript."
+    },
+    {
+        "titulo": "Calculadora",
+        "descricao": "Uma calculadora funcional que realiza operações matemáticas básicas."
+    },
+    {
+        "titulo": "To-Do List",
+        "descricao": "Aplicativo de lista de tarefas para organizar atividades diárias."
+    },
+    {
+        "titulo": "Portfólio Pessoal",
+        "descricao": "Um site pessoal para exibir projetos e habilidades."
+    }
+]
+
