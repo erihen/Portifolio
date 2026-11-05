@@ -8,7 +8,7 @@ const meusProjetos = [
         tecnologias: ["HTML5", "CSS3", "JavaScript"],
         link: "index.html"
     },
-    {
+ {
         id: 2,
         titulo: "Página de Contato Funcional",
         descricao: "Formulário estruturado com validação de campos e design responsivo para dispositivos móveis.",
@@ -16,7 +16,7 @@ const meusProjetos = [
         tecnologias: ["HTML5", "CSS", "JS"],
         link: "contato.html"
     },
-    {
+   {
         id: 3,
         titulo: "Jogos & Experimentos Friv",
         descricao: "Espaço dedicado aos meus jogos favoritos e testes de lógica utilizando interações em JavaScript.",

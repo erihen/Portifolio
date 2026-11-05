@@ -1,50 +1,73 @@
-// --- 1. Lógica do Modo Escuro (caso queira o botão de tema também nesta página) ---
-const btnTemaExistente = document.getElementById('tema');
+function initContactForm() {
+    const formulario = document.getElementById('formulario');
+    const respostaP = document.getElementById('resposta');
+    const btnEnviar = formulario ? formulario.querySelector('button[type="submit"]') : null;
 
-function alternarModoEscuro() {
-    document.body.classList.toggle('modo-escuro');
-    if (document.body.classList.contains('modo-escuro')) {
-        localStorage.setItem('tema', 'escuro');
-        if (btnTemaExistente) btnTemaExistente.textContent = 'Modo claro ☀️';
-    } else {
-        localStorage.setItem('tema', 'claro');
-        if (btnTemaExistente) btnTemaExistente.textContent = 'Modo escuro 🌙';
-    }
-}
+    if (!formulario) return;
 
-window.addEventListener('DOMContentLoaded', () => {
-    const temaSalvo = localStorage.getItem('tema');
-    if (temaSalvo === 'escuro') {
-        document.body.classList.add('modo-escuro');
-        if (btnTemaExistente) btnTemaExistente.textContent = 'Modo claro ☀️';
-    } else {
-        if (btnTemaExistente) btnTemaExistente.textContent = 'Modo escuro 🌙';
-    }
-});
+    formulario.addEventListener('submit', async (evento) => {
+        evento.preventDefault();
 
-if (btnTemaExistente) {
-    btnTemaExistente.addEventListener('click', alternarModoEscuro);
-}
+        // Captura e limpa os campos
+        const inputNome = document.getElementById('nome');
+        const inputEmail = document.getElementById('email'); // Certifique-se de ter um input com id="email" no HTML
+        
+        const nome = inputNome ? inputNome.value.trim() : '';
+        const email = inputEmail ? inputEmail.value.trim() : '';
 
+        // Validação extra: Nome mínimo de 3 caracteres
+        if (nome.length < 3) {
+            exibirFeedback(respostaP, 'Por favor, insira um nome com pelo menos 3 caracteres.', 'erro');
+            inputNome.focus();
+            return;
+        }
 
-// --- 2. Lógica de Envio do Formulário de Contato ---
-const formulario = document.getElementById('formulario');
-const respostaP = document.getElementById('resposta');
+        // Validação extra: Formato de e-mail válido
+        if (!validarEmail(email)) {
+            exibirFeedback(respostaP, 'Por favor, insira um endereço de e-mail válido.', 'erro');
+            inputEmail.focus();
+            return;
+        }
 
-if (formulario) {
-    formulario.addEventListener('submit', function(evento) {
-        evento.preventDefault(); // Evita que a página recarregue
+        // --- ATIVAR ESTADO DE CARREGAMENTO (LOADING) ---
+        if (btnEnviar) {
+            btnEnviar.disabled = true;
+            btnEnviar.dataset.textoOriginal = btnEnviar.textContent;
+            btnEnviar.innerHTML = 'Enviando... <span class="spinner"></span>';
+        }
 
-        // Captura os valores digitados (opcional, caso queira usar)
-        const nome = document.getElementById('nome').value;
+        exibirFeedback(respostaP, 'Enviando sua mensagem, por favor aguarde...', 'carregando');
 
-        // Exibe mensagem de sucesso estilizada
-        respostaP.textContent = `Obrigado pela mensagem, ${nome}! Entraremos em contato em breve. 🚀`;
-        respostaP.style.color = "#10b981"; // Verde sucesso
-        respostaP.style.fontWeight = "600";
-        respostaP.style.marginTop = "15px";
+        // Simula uma requisição de rede (como um fetch para API ou backend) por 1.5 segundo
+        await new Promise(resolve => setTimeout(resolve, 1500));
 
-        // Limpa o formulário após o envio
+        // --- SUCESSO ---
+        if (btnEnviar) {
+            btnEnviar.disabled = false;
+            btnEnviar.textContent = btnEnviar.dataset.textoOriginal || 'Enviar';
+        }
+
+        exibirFeedback(respostaP, `Obrigado pela mensagem, ${nome}! Entraremos em contato em breve. 🚀`, 'sucesso');
         formulario.reset();
     });
 }
+
+// Função auxiliar para validar o formato do e-mail
+function validarEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+}
+
+// Função auxiliar para gerenciar os feedbacks visuais
+function exibirFeedback(elemento, mensagem, tipo) {
+    if (!elemento) return;
+    
+    elemento.textContent = mensagem;
+    elemento.className = ''; // Remove classes anteriores
+    elemento.classList.add(`feedback-${tipo}`);
+}
+
+// Inicialização
+document.addEventListener('DOMContentLoaded', () => {
+    initContactForm();
+});
