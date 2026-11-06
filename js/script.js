@@ -1,4 +1,3 @@
-// --- 1. Lógica do Modo Escuro ---
 const btnTemaExistente = document.getElementById('tema');
 
 function alternarModoEscuro() {
@@ -27,7 +26,7 @@ if (btnTemaExistente) {
     btnTemaExistente.addEventListener('click', alternarModoEscuro);
 }
 
-// --- 2. Renderização de Gostos ---
+
 const gostos = [
     { texto: "Jogos", emoji: "🎮" },
     { texto: "Animes", emoji: "✨" },
@@ -58,7 +57,7 @@ function renderizarLista(dados, seletorDestino) {
     lista.appendChild(fragmento);
 }
 
-// --- 3. Efeito de Digitação Interativo ---
+
 const palavras = ["Desenvolvedor Web 💻", "Entusiasta de Games 🎮", "Estudante de JS 🚀"];
 let i = 0, j = 0, apagando = false;
 
@@ -81,7 +80,7 @@ function digitar() {
     }
 }
 
-// --- 4. Gerador de Frases Dev ---
+
 const frases = [
     '"Todo grande código começa com uma ideia simples."',
     '"A prática leva à perfeição no código."',

@@ -1,4 +1,4 @@
-/* --- 1. Variáveis de Cores (Alto Contraste) --- */
+
 :root {
     --bg-body: linear-gradient(135deg, #f0f4ff 0%, #d9e2ec 100%);
     --text-color: #1a202c;
@@ -29,7 +29,7 @@ body.modo-escuro {
     --table-hover: #374151;
 }
 
-/* --- 2. Reset Global & Scroll Suave --- */
+
 * {
     margin: 0;
     padding: 0;
@@ -50,7 +50,7 @@ body {
     transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* --- 3. Cabeçalho (Header) --- */
+
 header {
     background: var(--header-bg);
     display: flex;
@@ -110,7 +110,7 @@ header nav a:hover {
     background: #fbbf24;
 }
 
-/* --- 4. Containers e Cards --- */
+
 .container-principal {
     max-width: 850px;
     margin: 40px auto;
@@ -149,7 +149,7 @@ header nav a:hover {
     text-align: center;
 }
 
-/* --- 5. Apresentação --- */
+
 .secao-apresentacao {
     text-align: center;
     background-color: var(--card-bg);
@@ -184,7 +184,7 @@ header nav a:hover {
     color: #f59e0b;
 }
 
-/* --- 6. Lista de Gostos --- */
+
 .gostos {
     list-style: none;
     display: grid;
@@ -216,7 +216,7 @@ header nav a:hover {
     font-size: 1.6rem;
 }
 
-/* --- 7. Metas, Rotina e Habilidades --- */
+
 .lista-metas {
     padding-left: 20px;
     display: flex;
@@ -293,7 +293,7 @@ tr:hover {
     transform: translateY(-2px);
 }
 
-/* --- 8. Formulário de Contato --- */
+
 main {
     max-width: 850px;
     margin: 40px auto;
@@ -377,7 +377,7 @@ form input[type="submit"]:hover {
     transform: translateY(-2px);
 }
 
-/* --- 9. Redes Sociais e Rodapé --- */
+
 .redes-sociais {
     display: flex;
     justify-content: center;
@@ -411,7 +411,7 @@ footer {
     opacity: 0.9;
 }
 
-/* --- 10. Responsividade (Celulares) --- */
+
 @media (max-width: 600px) {
     header {
         flex-direction: column;
@@ -470,7 +470,7 @@ footer {
     to { transform: rotate(360deg); }
 }
 
-/* Desabilitar visualmente o botão durante o envio */
+
 button:disabled {
     opacity: 0.7;
     cursor: not-allowed;
