@@ -1,23 +1,27 @@
 [
-    {
-        "titulo": "Protótipo Figma",
-        "descricao": "Protótipo de um site feito no Figma, com foco em design e experiência do usuário."
-    },
-    {
-        "titulo": "Jogo da Memória",
-        "descricao": "Um jogo interativo de memória desenvolvido com HTML, CSS e JavaScript."
-    },
-    {
-        "titulo": "Calculadora",
-        "descricao": "Uma calculadora funcional que realiza operações matemáticas básicas."
-    },
-    {
-        "titulo": "To-Do List",
-        "descricao": "Aplicativo de lista de tarefas para organizar atividades diárias."
-    },
-    {
-        "titulo": "Portfólio Pessoal",
-        "descricao": "Um site pessoal para exibir projetos e habilidades."
-    }
+  {
+    "titulo": "Portfólio",
+    "descricao": "Meu site, com 4 páginas, no ar.",
+    "categoria": "Estudo"
+  },
+  {
+    "titulo": "Receitas",
+    "descricao": "Churrasco em 5 passos, com tabela.",
+    "categoria": "Estudo"
+  },
+  {
+    "titulo": "Treinos",
+    "descricao": "Os treinos da semana na academia.",
+    "categoria": "Pessoal"
+  },
+  {
+    "titulo": "Playlist",
+    "descricao": "As músicas que mais escuto.",
+    "categoria": "Pessoal"
+  },
+  {
+    "titulo": "Calculadora",
+    "descricao": "Meu próximo projeto em JavaScript.",
+    "categoria": "Estudo"
+  }
 ]
-

@@ -1,4 +1,3 @@
-
 const meusProjetos = [
     {
         id: 1,
@@ -8,7 +7,7 @@ const meusProjetos = [
         tecnologias: ["HTML5", "CSS3", "JavaScript"],
         link: "index.html"
     },
- {
+    {
         id: 2,
         titulo: "Página de Contato Funcional",
         descricao: "Formulário estruturado com validação de campos e design responsivo para dispositivos móveis.",
@@ -16,7 +15,7 @@ const meusProjetos = [
         tecnologias: ["HTML5", "CSS", "JS"],
         link: "contato.html"
     },
-   {
+    {
         id: 3,
         titulo: "Jogos & Experimentos Friv",
         descricao: "Espaço dedicado aos meus jogos favoritos e testes de lógica utilizando interações em JavaScript.",
@@ -26,6 +25,7 @@ const meusProjetos = [
     }
 ];
 
+let filtroAtual = "Todos";
 
 function curtirProjeto(id) {
     let curtidas = parseInt(localStorage.getItem(`curtida_${id}`) || '0');
@@ -38,6 +38,18 @@ function curtirProjeto(id) {
     }
 }
 
+function filtrarProjetos(tecnologia, elementoBotao) {
+    filtroAtual = tecnologia;
+
+    const botoes = document.querySelectorAll('.btn-filtro');
+    botoes.forEach(botao => botao.classList.remove('active'));
+
+    if (elementoBotao) {
+        elementoBotao.classList.add('active');
+    }
+
+    renderizarProjetos();
+}
 
 function renderizarProjetos() {
     const container = document.getElementById("lista-projetos");
@@ -46,14 +58,17 @@ function renderizarProjetos() {
     container.innerHTML = "";
     const fragmento = document.createDocumentFragment();
 
-    meusProjetos.forEach((proj) => {
-        
+    const projetosFiltrados = meusProjetos.filter(proj => {
+        if (filtroAtual === "Todos") return true;
+        return proj.tecnologias.some(tech => tech.toLowerCase().includes(filtroAtual.toLowerCase()));
+    });
+
+    projetosFiltrados.forEach((proj) => {
         const curtidasAtuais = localStorage.getItem(`curtida_${proj.id}`) || '0';
 
         const card = document.createElement("div");
         card.classList.add("projeto-card");
-
-      
+    
         let techHtml = "";
         proj.tecnologias.forEach(tech => {
             techHtml += `<span class="badge">${tech}</span>`;
@@ -71,7 +86,7 @@ function renderizarProjetos() {
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
                     <a href="${proj.link}" class="btn-projeto">Ver Projeto 🔗</a>
-                    <button onclick="curtirProjeto(${proj.id})" style="background: none; border: none; cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; gap: 5px; color: var(--text-color); font-weight: 600;">
+                    <button class="btn-curtir" onclick="curtirProjeto(${proj.id})">
                         ❤️ <span id="count-${proj.id}">${curtidasAtuais}</span>
                     </button>
                 </div>
@@ -83,6 +98,5 @@ function renderizarProjetos() {
 
     container.appendChild(fragmento);
 }
-
 
 window.addEventListener("DOMContentLoaded", renderizarProjetos);
